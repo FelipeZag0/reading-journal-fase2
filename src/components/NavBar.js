@@ -1,13 +1,22 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function NavBar() {
     return (
         <nav>
             <ul>
-                <li><a href="/">Página inicial</a></li>
-                <li><a href="/add-book">Sobre</a></li>
-                <li><a href="/book-list">Lista de livros</a></li>
-                <li><a href="/book-list">Cadastrar</a></li>
+                <li>
+                    <Link to="/">Página Inicial</Link>
+                </li>
+                <li>
+                    <Link to="/about">Sobre</Link>
+                </li>
+                <li>
+                    <Link to="/add">Cadastrar</Link>
+                </li>
+                <li>
+                    <Link to="/books">Lista de Livros</Link>
+                </li>
             </ul>
         </nav>
     );
