@@ -80,11 +80,11 @@ Este projeto é uma aplicação simples de CRUD (Create, Read, Update, Delete) p
 
 ## Capturas de Tela
 
-![Página Inicial](./screenshots/pg-inicial.png)
-![Cadastro de Livro](./screenshots/cadastrar.png)
-![Edição de Livro](./screenshots/editar.png)
-![Lista de Livros](./screenshots/lista-de-livros.png)
-![Sobre](./screenshots/sobre.png)
+![Página Inicial](./src/screenshots/pg-inicial.png)
+![Cadastro de Livro](./src/screenshots/cadastrar.png)
+![Edição de Livro](./src/screenshots/editar.png)
+![Lista de Livros](./src/screenshots/lista-de-livros.png)
+![Sobre](./src/screenshots/sobre.png)
 
 
 ## Considerações Finais
