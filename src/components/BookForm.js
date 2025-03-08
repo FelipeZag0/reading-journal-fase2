@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 function BookForm({ addBook }) {
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState('');
-    const [year, setYear] = useState('');
+    const [date, setYear] = useState('');
     const [genre, setGenre] = useState('');
     const [error, setError] = useState('');
 
@@ -11,12 +11,12 @@ function BookForm({ addBook }) {
         e.preventDefault();
 
         // Validação básica: garantir que todos os campos foram preenchidos
-        if (!title || !author || !year || !genre) {
+        if (!title || !author || !date || !genre) {
             setError('Todos os campos são obrigatórios');
             return;
         }
 
-        addBook({ title, author, year, genre });
+        addBook({ title, author, date, genre });
 
         // Limpar os campos após o envio
         setTitle('');
@@ -60,7 +60,7 @@ function BookForm({ addBook }) {
                     <label>Data:</label>
                     <input
                         type="date"
-                        value={year}
+                        value={date}
                         onChange={(e) => setYear(e.target.value)}
                         required
                     />
