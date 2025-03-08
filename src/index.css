@@ -4,18 +4,16 @@
   box-sizing: border-box;
 }
 
-/* Centraliza o conteúdo da página */
 .page-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-grow: 1; /* Para que ocupe o espaço restante */
+  flex-grow: 1; 
   text-align: center;
   padding: 20px;
 }
 
-/* Estilo para o título das páginas */
 .page-content h1 {
   font-size: 2rem;
   margin-bottom: 20px;

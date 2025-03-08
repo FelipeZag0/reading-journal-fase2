@@ -7,7 +7,7 @@ function AddBookPage({ addBook }) {
 
   const handleAddBook = (book) => {
     addBook(book);
-    navigate('/books');  // Redireciona para a página de lista de livros
+    navigate('/books');
   };
 
   return (
