@@ -49,6 +49,13 @@ Os componentes estão no diretório `./src/components` e possuem as seguintes ca
 - **Footer**:
   - **Descrição**: Exibe o rodapé com informações adicionais sobre o desenvolvedor.
 
+## Demonstração
+
+Após a execução do projeto, este é o resultado esperado no navegador:
+
+[Assista ao GIF de Apresentação](.src/screenshots/gif-apresentacao.mp4)
+
+
 ## Conclusão
 
 Este projeto foi desenvolvido com o objetivo de praticar a criação de uma aplicação simples com React. Ele serve para demonstrar como criar um CRUD básico, manipular formulários, gerenciar estados e implementar navegação entre páginas utilizando o React Router.
