@@ -2,17 +2,21 @@
 
 ## Para executar este projeto:
 
-1. Entre na pasta do projeto no terminal:
+1. Clone este repositório para sua máquina local:
    ```bash
-   cd seu-repositorio
+   git clone [https://github.com/FelipeZag0/reading-journal]
+
+2. Entre na pasta do projeto no terminal:
+   ```bash
+   cd reading-journal
    ```
 
-2. Rode `npm install` para instalar as dependências do projeto:
+3. Rode `npm install` para instalar as dependências do projeto:
    ```bash
    npm install
    ```
 
-3. E em seguida, rode `npm start` para iniciar a execução do projeto:
+4. E em seguida, rode `npm start` para iniciar a execução do projeto:
    ```bash
    npm start
    ```
