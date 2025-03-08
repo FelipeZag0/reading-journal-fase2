@@ -17,11 +17,6 @@
    npm start
    ```
 
-Após a execução do projeto, este é o resultado esperado no navegador:  
-![Gif mostrando o resultado esperado](./screenshots/resultado.gif)
-
-## Introdução
-
 Este projeto é uma aplicação de **Reading Journal** (Diário de Leitura), criada para registrar livros lidos. Desenvolvido com **React.js**, ele permite que os usuários adicionem, editem, excluam e visualizem livros registrados.
 
 ### Funcionalidades
@@ -53,7 +48,13 @@ Os componentes estão no diretório `./src/components` e possuem as seguintes ca
 
 Após a execução do projeto, este é o resultado esperado no navegador:
 
-(.src/screenshots/gif-apresentacao.gif)
+Após a execução do projeto, este é o resultado esperado no navegador:
+
+<video width="600" controls>
+  <source src="./screenshots/gif-apresentacao.mp4" type="video/mp4">
+  Seu navegador não suporta a tag de vídeo.
+</video>
+
 
 
 ## Conclusão
