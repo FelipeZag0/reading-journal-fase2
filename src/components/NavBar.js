@@ -1,3 +1,4 @@
+/*
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -23,3 +24,20 @@ function NavBar() {
 }
 
 export default NavBar;
+*/
+
+// src/components/NavBar.js
+const NavBar = () => {
+    return (
+        <nav>
+            <ul>
+                <li><a href="/">Página Inicial</a></li>
+                <li><a href="/about">Sobre</a></li>
+                <li><a href="/add">Cadastrar</a></li>
+                <li><a href="/books">Lista de Livros</a></li>
+            </ul>
+        </nav>
+    );
+};
+
+export default NavBar;  // Certifique-se de exportar como default

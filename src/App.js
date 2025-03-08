@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import NavBar from './components/NavBar';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import AddBookPage from './pages/AddBookPage';
@@ -9,8 +8,8 @@ import './App.css';
 
 function App() {
   const [books, setBooks] = useState([
-    { title: '1984', author: 'George Orwell', year: 1949, genre: 'Dystopian', date: '08/06/1949' },
-    { title: 'To Kill a Mockingbird', author: 'Harper Lee', year: 1960, genre: 'Fiction', date: '11/07/1960' },
+    { title: '1984', author: 'George Orwell', genre: 'Dystopian', date: '08/06/1949' },
+    { title: 'To Kill a Mockingbird', author: 'Harper Lee', genre: 'Fiction', date: '11/07/1960' },
   ]);
 
 
