@@ -53,7 +53,7 @@ Os componentes estão no diretório `./src/components` e possuem as seguintes ca
 
 Após a execução do projeto, este é o resultado esperado no navegador:
 
-[Assista ao GIF de Apresentação](.src/screenshots/gif-apresentacao.gif)
+(.src/screenshots/gif-apresentacao.gif)
 
 
 ## Conclusão
