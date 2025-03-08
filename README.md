@@ -76,12 +76,6 @@ Este projeto é uma aplicação simples de CRUD (Create, Read, Update, Delete) p
 - **NavBar**: Barra de navegação com links para a página inicial, sobre, cadastro de livros e lista de livros.
 - **Footer**: Exibe o nome do desenvolvedor no rodapé da página.
 
-## Capturas de Tela
-
-![Página Inicial](./screenshots/home.png)
-![Cadastro de Livro](./screenshots/addBook.png)
-![Lista de Livros](./screenshots/booksList.png)
-
 ## Considerações Finais
 
 Este projeto foi uma ótima oportunidade de aplicar conhecimentos de React e desenvolvimento frontend. Fico aberto a sugestões de melhorias e contribuições. Obrigado por conferir!
