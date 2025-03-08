@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import AddBookPage from './pages/AddBookPage';
@@ -41,6 +42,7 @@ function App() {
           <Route path="/books" element={<BooksPage books={books} deleteBook={deleteBook} />} />
         </Routes>
       </div>
+      <Footer />
     </Router>
   );
 }
