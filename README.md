@@ -94,12 +94,3 @@ Este projeto foi uma ótima oportunidade de aplicar conhecimentos de React e des
 ---
 
 Desenvolvido por **Felipe Zago**.
-```
-=======
-## Considerações Finais
-
-Este projeto foi uma ótima oportunidade de aplicar conhecimentos de React e desenvolvimento frontend. Fico aberto a sugestões de melhorias e contribuições. Obrigado por conferir!
-
----
-
-Desenvolvido por **Felipe Zago**.
