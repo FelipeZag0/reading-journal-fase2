@@ -1,35 +1,3 @@
-
-/*
-import React from 'react';
-import { Link } from 'react-router-dom';
-
-const BooksPage = ({ books, deleteBook }) => {
-  return (
-    <div>
-      <h1>Lista de Livros</h1>
-      <ul>
-        {books.map((book, index) => {
-          const formattedDate = new Date(book.date).toLocaleDateString('pt-BR');
-          
-          return (
-            <li key={index} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <p><strong>{book.title}</strong> por {book.author} - {book.genre} - {formattedDate}</p>
-              <button onClick={() => deleteBook(index)}>Excluir</button>
-            </li>
-          );
-        })}
-      </ul>
-      <Link to="/add">
-        <button>Cadastrar</button>
-      </Link>
-    </div>
-  );
-};
-
-export default BooksPage;
-
-*/
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -42,6 +10,7 @@ const BooksPage = ({ books, deleteBook, updateBook }) => {
     date: '',
   });
 
+  // Inicia a edição de um livro
   const startEditing = (index) => {
     setEditingIndex(index);
     const book = books[index];
@@ -57,11 +26,16 @@ const BooksPage = ({ books, deleteBook, updateBook }) => {
   const handleEditSubmit = (e) => {
     e.preventDefault();
     updateBook(editingIndex, editedBook);
-    setEditingIndex(null);
+    setEditingIndex(null);  // Retorna à visualização da lista de livros
   };
 
-  // Formatar a data
+  // Função para formatar a data
   const formattedDate = (date) => new Date(date).toLocaleDateString('pt-BR');
+
+  // Função para cancelar a edição
+  const handleCancelClick = () => {
+    setEditingIndex(null); // Cancela a edição e retorna à lista
+  };
 
   return (
     <div>
@@ -97,7 +71,10 @@ const BooksPage = ({ books, deleteBook, updateBook }) => {
               onChange={(e) => setEditedBook({ ...editedBook, date: e.target.value })}
               required
             />
-            <button type="submit">Salvar</button>
+            <div style={{ display: 'flex', gap: '10px' }}>
+              <button type="submit">Salvar</button>
+              <button type="button" onClick={handleCancelClick}>Cancelar</button>
+            </div>
           </form>
         </div>
       ) : (
@@ -109,14 +86,15 @@ const BooksPage = ({ books, deleteBook, updateBook }) => {
                 <button onClick={() => startEditing(index)}>Editar</button>
                 <button onClick={() => deleteBook(index)}>Excluir</button>
               </div>
-
             </li>
           ))}
         </ul>
       )}
-      <Link to="/add">
-        <button>Cadastrar</button>
-      </Link>
+      {editingIndex === null && (
+        <Link to="/add">
+          <button>Cadastrar</button>
+        </Link>
+      )}
     </div>
   );
 };
