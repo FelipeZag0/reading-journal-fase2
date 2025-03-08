@@ -16,11 +16,11 @@
    ```bash
    npm start
    ```
+## Demonstração
 
 Após a execução do projeto, este é o resultado esperado no navegador:  
-![Gif mostrando o resultado esperado](./screenshots/resultado.gif)
+![Gif mostrando o resultado esperado](./src/screenshots/gif-apresentacao.gif)
 
-## Introdução
 
 Este projeto é uma aplicação de **Reading Journal** (Diário de Leitura), criada para registrar livros lidos. Desenvolvido com **React.js**, ele permite que os usuários adicionem, editem, excluam e visualizem livros registrados.
 
@@ -48,13 +48,6 @@ Os componentes estão no diretório `./src/components` e possuem as seguintes ca
   
 - **Footer**:
   - **Descrição**: Exibe o rodapé com informações adicionais sobre o desenvolvedor.
-
-## Demonstração
-
-Após a execução do projeto, este é o resultado esperado no navegador:
-
-[Assista ao GIF de Apresentação](.src/screenshots/gif-apresentacao.mp4)
-
 
 ## Conclusão
 
