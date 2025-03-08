@@ -1,5 +1,11 @@
 # Reading Journal - Fase 1
 
+## Informações do Projeto
+
+- **Aluno**: Felipe Zago
+- **Curso**: Análise e Desenvolvimento de Sistemas - PUCRS
+- **Matéria**: Desenvolvimento de Sistemas Frontend
+
 ## Descrição
 
 Este projeto é uma aplicação simples de CRUD (Create, Read, Update, Delete) para um "Reading Journal", ou seja, um inventário de livros lidos. Ele foi desenvolvido como parte da disciplina de Desenvolvimento de Sistemas Frontend do curso de Análise e Desenvolvimento de Sistemas. A aplicação permite ao usuário adicionar, editar, excluir e visualizar livros registrados no sistema.
