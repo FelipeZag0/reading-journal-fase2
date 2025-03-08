@@ -9,8 +9,8 @@ import './App.css';
 
 function App() {
   const [books, setBooks] = useState([
-    { title: '1984', author: 'George Orwell', genre: 'Dystopian', date: '08/06/1949' },
-    { title: 'To Kill a Mockingbird', author: 'Harper Lee', genre: 'Fiction', date: '11/07/1960' },
+    { title: '1984', author: 'George Orwell', genre: 'Dystopian', date: '1949-06-08' },
+    { title: 'To Kill a Mockingbird', author: 'Harper Lee', genre: 'Fiction', date: '1960-07-11' },
   ]);
 
 
