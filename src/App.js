@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { getBooks, createBook, updateBook, deleteBook } from './services/api';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
@@ -8,25 +9,46 @@ import BooksPage from './pages/BooksPage';
 import './App.css';
 
 function App() {
-  const [books, setBooks] = useState([
-    { title: '1984', author: 'George Orwell', genre: 'Dystopian', date: '1949-06-08' },
-    { title: 'To Kill a Mockingbird', author: 'Harper Lee', genre: 'Fiction', date: '1960-07-11' },
-  ]);
+  const [books, setBooks] = useState([]);
 
-  const addBook = (book) => {
-    setBooks([...books, book]);
+  useEffect(() => {
+    fetchBooks();
+  }, []);
+
+  const fetchBooks = async () => {
+    try {
+      const response = await getBooks();
+      setBooks(response.data);
+    } catch (error) {
+      console.error('Error fetching books:', error);
+    }
   };
 
-  const deleteBook = (index) => {
-    const updatedBooks = books.filter((book, i) => i !== index);
-    setBooks(updatedBooks);
+  const handleAddBook = async (book) => {
+    try {
+      await createBook(book);
+      fetchBooks();
+    } catch (error) {
+      console.error('Error adding book:', error);
+    }
   };
 
-  // Função para atualizar um livro
-  const updateBook = (index, updatedBook) => {
-    const updatedBooks = [...books];
-    updatedBooks[index] = updatedBook; // Substitui o livro no índice especificado
-    setBooks(updatedBooks); // Atualiza o estado com o novo array de livros
+  const handleDeleteBook = async (id) => {
+    try {
+      await deleteBook(id);
+      fetchBooks();
+    } catch (error) {
+      console.error('Error deleting book:', error);
+    }
+  };
+
+  const handleUpdateBook = async (id, updatedBook) => {
+    try {
+      await updateBook(id, updatedBook);
+      fetchBooks();
+    } catch (error) {
+      console.error('Error updating book:', error);
+    }
   };
 
   return (
@@ -44,10 +66,18 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
-          <Route path="/add" element={<AddBookPage addBook={addBook} />} />
-          <Route path="/books" element={<BooksPage books={books} deleteBook={deleteBook} updateBook={updateBook} />} />
-        </Routes>
-      </div>
+          <Route path="/add" element={<AddBookPage addBook={handleAddBook} />} />
+          <Route
+            path="/books"
+            element={
+              <BooksPage
+                books={books}
+                deleteBook={handleDeleteBook}
+                updateBook={handleUpdateBook}
+              />
+            }
+          />
+        </Routes>      </div>
       <Footer />
     </Router>
   );

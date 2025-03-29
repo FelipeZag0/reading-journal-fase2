@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const BooksPage = ({ books, deleteBook, updateBook }) => {
-  const [editingIndex, setEditingIndex] = useState(null);
+  const [editingId, setEditingId] = useState(null);
   const [editedBook, setEditedBook] = useState({
     title: '',
     author: '',
@@ -10,10 +10,8 @@ const BooksPage = ({ books, deleteBook, updateBook }) => {
     date: '',
   });
 
-  // Inicia a edição de um livro
-  const startEditing = (index) => {
-    setEditingIndex(index);
-    const book = books[index];
+  const startEditing = (book) => {
+    setEditingId(book.id);
     setEditedBook({
       title: book.title,
       author: book.author,
@@ -22,11 +20,10 @@ const BooksPage = ({ books, deleteBook, updateBook }) => {
     });
   };
 
-  // Função para salvar a edição
-  const handleEditSubmit = (e) => {
+  const handleEditSubmit = async (e) => {
     e.preventDefault();
-    updateBook(editingIndex, editedBook);
-    setEditingIndex(null);  // Retorna à visualização da lista de livros
+    await updateBook(editingId, editedBook);
+    setEditingId(null);
   };
 
   // Função para formatar a data
@@ -34,13 +31,13 @@ const BooksPage = ({ books, deleteBook, updateBook }) => {
 
   // Função para cancelar a edição
   const handleCancelClick = () => {
-    setEditingIndex(null); // Cancela a edição e retorna à lista
+    setEditingId(null); // Cancela a edição e retorna à lista
   };
 
   return (
     <div>
       <h1>Lista de Livros</h1>
-      {editingIndex !== null ? (
+      {editingId !== null ? (
         <div>
           <h2>Editar Livro</h2>
           <form onSubmit={handleEditSubmit}>
@@ -67,8 +64,8 @@ const BooksPage = ({ books, deleteBook, updateBook }) => {
             />
             <input
               type="date"
-              value={editedBook.date}
-              onChange={(e) => setEditedBook({ ...editedBook, date: e.target.value })}
+              value={editedBook.readAt}
+              onChange={(e) => setEditedBook({ ...editedBook, readAt: e.target.value })}
               required
             />
             <div style={{ display: 'flex', gap: '10px' }}>
@@ -79,18 +76,20 @@ const BooksPage = ({ books, deleteBook, updateBook }) => {
         </div>
       ) : (
         <ul>
-          {books.map((book, index) => (
-            <li key={index} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <p><strong>{book.title}</strong> por {book.author} - {book.genre} - {formattedDate(book.date)}</p>
+          {books.map((book) => (
+            <li key={book.id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <p>
+                <strong>{book.title}</strong> por {book.author} - {book.genre} - Lido em {formattedDate(book.readAt)}
+              </p>
               <div style={{ display: 'flex', gap: '5px' }}>
-                <button onClick={() => startEditing(index)}>Editar</button>
-                <button onClick={() => deleteBook(index)}>Excluir</button>
+                <button onClick={() => startEditing(book)}>Editar</button>
+                <button onClick={() => deleteBook(book.id)}>Excluir</button>
               </div>
             </li>
           ))}
         </ul>
       )}
-      {editingIndex === null && (
+      {editingId === null && (
         <Link to="/add">
           <button>Cadastrar</button>
         </Link>
