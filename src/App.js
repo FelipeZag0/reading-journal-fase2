@@ -10,6 +10,8 @@ import './App.css';
 
 function App() {
   const [books, setBooks] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     fetchBooks();
@@ -19,8 +21,11 @@ function App() {
     try {
       const response = await getBooks();
       setBooks(response.data);
-    } catch (error) {
-      console.error('Error fetching books:', error);
+      setLoading(false);
+    } catch (err) {
+      setError('Erro ao carregar livros');
+      setLoading(false);
+      console.error(err);
     }
   };
 
@@ -28,26 +33,28 @@ function App() {
     try {
       await createBook(book);
       fetchBooks();
-    } catch (error) {
-      console.error('Error adding book:', error);
+    } catch (err) {
+      console.error('Erro ao adicionar livro:', err);
+      throw err;
     }
   };
+  
+    const handleUpdateBook = async (id, updatedBook) => {
+      try {
+        await updateBook(id, updatedBook);
+        fetchBooks();
+      } catch (err) {
+        console.error('Erro ao atualizar livro:', err);
+        throw err;
+      }
+    };
 
   const handleDeleteBook = async (id) => {
     try {
       await deleteBook(id);
       fetchBooks();
-    } catch (error) {
-      console.error('Error deleting book:', error);
-    }
-  };
-
-  const handleUpdateBook = async (id, updatedBook) => {
-    try {
-      await updateBook(id, updatedBook);
-      fetchBooks();
-    } catch (error) {
-      console.error('Error updating book:', error);
+    } catch (err) {
+      console.error('Erro ao deletar livro:', err);
     }
   };
 
@@ -77,7 +84,9 @@ function App() {
               />
             }
           />
-        </Routes>      </div>
+        </Routes>
+        )}
+        </div>
       <Footer />
     </Router>
   );

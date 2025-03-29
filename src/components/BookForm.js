@@ -3,27 +3,29 @@ import React, { useState } from 'react';
 function BookForm({ addBook }) {
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState('');
-    const [readAt, setReadAt] = useState('');
     const [genre, setGenre] = useState('');
+    const [readAt, setReadAt] = useState('');
     const [error, setError] = useState('');
 
-    const handleSubmit = (e) => {
+    // Adicione async aqui
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // Validação básica: garantir que todos os campos foram preenchidos
-        if (!title || !author || !readAt || !genre) {
+        if (!title || !author || !genre || !readAt) {
             setError('Todos os campos são obrigatórios');
             return;
         }
 
-        addBook({ title, author, readAt, genre });
-
-        // Limpar os campos após o envio
-        setTitle('');
-        setAuthor('');
-        setReadAt('');
-        setGenre('');
-        setError('');
+        try {
+            await addBook({ title, author, genre, readAt });
+            setTitle('');
+            setAuthor('');
+            setGenre('');
+            setReadAt('');
+            setError('');
+        } catch (err) {
+            setError('Erro ao adicionar livro');
+        }
     };
 
     return (
