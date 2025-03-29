@@ -7,7 +7,7 @@ const BooksPage = ({ books, deleteBook, updateBook }) => {
     title: '',
     author: '',
     genre: '',
-    date: '',
+    readAt: '',
   });
   const [isUpdating, setIsUpdating] = useState(false);
   const [error, setError] = useState(null);
@@ -27,6 +27,7 @@ const BooksPage = ({ books, deleteBook, updateBook }) => {
     setIsUpdating(true);
     setError(null); // Limpa o erro anterior
 
+    /*
     try {
       await updateBook(editingId, editedBook);
       setEditingId(null);
@@ -37,6 +38,24 @@ const BooksPage = ({ books, deleteBook, updateBook }) => {
       setIsUpdating(false);
     }
   };
+  */
+
+  try {
+    // Formata a data corretamente antes de enviar
+    const bookToUpdate = {
+      ...editedBook,
+      readAt: new Date(editedBook.readAt).toISOString()
+    };
+
+    await updateBook(editingId, bookToUpdate);
+    setEditingId(null);
+  } catch (err) {
+    console.error('Erro detalhado:', err.response?.data || err.message);
+    setError(`Falha ao atualizar: ${err.response?.data?.message || err.message}`);
+  } finally {
+    setIsUpdating(false);
+  }
+};
 
   const handleCancelClick = () => {
     setEditingId(null);
