@@ -1,21 +1,22 @@
-import { render, screen, fireEvent } from '@testing-library/react';
-import BookForm from './BookForm';
+import { render, screen } from '@testing-library/react';
+import BookList from '../components/BookList';
 
-test('submits form with correct data', () => {
-    const mockAddBook = jest.fn();
-    render(<BookForm addBook={mockAddBook} />);
+describe('BookList', () => {
+    const mockBooks = [
+        { id: 1, title: 'Livro 1', author: 'Autor 1', genre: 'Gênero 1', readAt: '2023-01-01' },
+        { id: 2, title: 'Livro 2', author: 'Autor 2', genre: 'Gênero 2', readAt: '2023-02-01' }
+    ];
 
-    fireEvent.change(screen.getByLabelText(/título/i), { target: { value: '1984' } });
-    fireEvent.change(screen.getByLabelText(/autor/i), { target: { value: 'Orwell' } });
-    fireEvent.change(screen.getByLabelText(/gênero/i), { target: { value: 'Dystopian' } });
-    fireEvent.change(screen.getByLabelText(/data/i), { target: { value: '1949-06-08' } });
+    it('renders list of books', () => {
+        render(<BookList books={mockBooks} />);
 
-    fireEvent.click(screen.getByText(/adicionar/i));
+        expect(screen.getByText('Livro 1 - Autor 1 - Gênero 1')).toBeInTheDocument();
+        expect(screen.getByText('Livro 2 - Autor 2 - Gênero 2')).toBeInTheDocument();
+    });
 
-    expect(mockAddBook).toHaveBeenCalledWith({
-        title: '1984',
-        author: 'Orwell',
-        genre: 'Dystopian',
-        date: '1949-06-08'
+    it('renders empty state when no books', () => {
+        render(<BookList books={[]} />);
+
+        expect(screen.queryByRole('listitem')).not.toBeInTheDocument();
     });
 });

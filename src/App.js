@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import { getBooks, createBook, updateBook, deleteBook } from './services/api';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
@@ -38,16 +40,16 @@ function App() {
       throw err;
     }
   };
-  
-    const handleUpdateBook = async (id, updatedBook) => {
-      try {
-        await updateBook(id, updatedBook);
-        fetchBooks();
-      } catch (err) {
-        console.error('Erro ao atualizar livro:', err);
-        throw err;
-      }
-    };
+
+  const handleUpdateBook = async (id, updatedBook) => {
+    try {
+      await updateBook(id, updatedBook);
+      fetchBooks();
+    } catch (err) {
+      console.error('Erro ao atualizar livro:', err);
+      throw err;
+    }
+  };
 
   const handleDeleteBook = async (id) => {
     try {
@@ -60,6 +62,17 @@ function App() {
 
   return (
     <Router>
+      <ToastContainer
+        position="bottom-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
       <div className="navbar">
         <ul>
           <li><Link to="/">Página Inicial</Link></li>
@@ -85,8 +98,7 @@ function App() {
             }
           />
         </Routes>
-        )}
-        </div>
+      </div>
       <Footer />
     </Router>
   );

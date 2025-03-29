@@ -51,10 +51,57 @@ const BooksPage = ({ books, deleteBook, updateBook }) => {
     <div>
         <h1>Lista de Livros</h1>
         {editingId !== null ? (
-            <div>
-                {/* Formulário de edição permanece igual */}
-            </div>
-        ) : (
+<div className="edit-form-container">
+    <h2>Editar Livro</h2>
+    <form onSubmit={handleEditSubmit}>
+      <div className="form-group">
+        <label>Título:</label>
+        <input
+          type="text"
+          value={editedBook.title}
+          onChange={(e) => setEditedBook({...editedBook, title: e.target.value})}
+          required
+        />
+      </div>
+      <div className="form-group">
+        <label>Autor:</label>
+        <input
+          type="text"
+          value={editedBook.author}
+          onChange={(e) => setEditedBook({...editedBook, author: e.target.value})}
+          required
+        />
+      </div>
+      <div className="form-group">
+        <label>Gênero:</label>
+        <input
+          type="text"
+          value={editedBook.genre}
+          onChange={(e) => setEditedBook({...editedBook, genre: e.target.value})}
+          required
+        />
+      </div>
+      <div className="form-group">
+        <label>Data de Leitura:</label>
+        <input
+          type="date"
+          value={editedBook.readAt}
+          onChange={(e) => setEditedBook({...editedBook, readAt: e.target.value})}
+          required
+        />
+      </div>
+      <div className="form-actions">
+        <button type="submit" disabled={isUpdating}>
+          {isUpdating ? 'Salvando...' : 'Salvar'}
+        </button>
+        <button type="button" onClick={handleCancelClick}>
+          Cancelar
+        </button>
+      </div>
+      {error && <p className="error-message">{error}</p>}
+    </form>
+  </div>
+) : (
             <>
                 <ul>
                     {books.map((book) => (
