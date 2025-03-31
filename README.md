@@ -1,4 +1,3 @@
-```markdown
 # Nome: Felipe Zago
 
 ## Para executar este projeto:
