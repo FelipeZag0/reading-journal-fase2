@@ -1,3 +1,4 @@
+```markdown
 # Nome: Felipe Zago
 
 ## Para executar este projeto:
@@ -11,52 +12,113 @@
    cd reading-journal
    ```
 
-3. Rode `npm install` para instalar as dependências do projeto:
+3. Instale as dependências:
    ```bash
    npm install
    ```
 
-4. E em seguida, rode `npm start` para iniciar a execução do projeto:
+4. Inicie a API (em outro terminal):
    ```bash
-   npm start
+   cd api && npm install && npm start
    ```
+
+5. Inicie o frontend:
+   ```bash
+   npm run dev
+   ```
+
 ## Demonstração
 
-Após a execução do projeto, este é o resultado esperado no navegador:  
-![Gif mostrando o resultado esperado](./src/screenshots/gif-apresentacao.gif)
+Resultado esperado no navegador:  
+![Gif mostrando operações CRUD](./src/screenshots/gif-apresentacao.gif)
 
+## Sobre o Projeto
 
-Este projeto é uma aplicação de **Reading Journal** (Diário de Leitura), criada para registrar livros lidos. Desenvolvido com **React.js**, ele permite que os usuários adicionem, editem, excluam e visualizem livros registrados.
+Aplicação **Reading Journal** desenvolvida com React.js para gerenciamento de livros lidos, integrada com API REST. Funcionalidades principais:
 
 ### Funcionalidades
+- **CRUD Completo**: Create, Read, Update e Delete de livros
+- **Validação de Formulários**: Campos obrigatórios e feedback visual
+- **Busca Inteligente**: Filtragem em tempo real na lista de livros
+- **Feedback de Ações**: Notificações visuais para sucesso/erro
+- **Responsividade**: Layout adaptável para diferentes dispositivos
 
-- **Cadastro de Livros**: Adicione livros com informações como título, autor, gênero e ano.
-- **Edição de Livros**: Edite as informações de um livro já registrado.
-- **Exclusão de Livros**: Remova livros do registro.
-- **Listagem de Livros**: Veja todos os livros registrados, com a possibilidade de editar ou excluir.
+**Tecnologias**: React 18, React Router 6, Material-UI, Axios, Testing Library
 
-A aplicação foi desenvolvida utilizando **React.js** e outras tecnologias modernas do ecossistema frontend.
+## Integração com API
+A aplicação consome os seguintes endpoints:
+- `GET /books`: Listagem de livros
+- `POST /books`: Cadastro de novo livro
+- `PUT /books/:id`: Atualização de livro existente
+- `DELETE /books/:id`: Remoção de livro
 
-## Componentes
+## Componentes Principais
 
-Os componentes estão no diretório `./src/components` e possuem as seguintes características:
+### `BookList` (`./src/components/BookList.js`)
+- **Função**: Listagem interativa com Material-UI
+- **Features**:
+  - Paginação virtual
+  - Ações de edição/exclusão com ícones
+  - Exibição de data formatada
+  - Sistema de busca integrado
 
-- **BookList**:
-  - **Descrição**: Este componente exibe a lista de livros cadastrados, permitindo a edição e a exclusão de livros.
-  
-- **BookForm**:
-  - **Descrição**: Componente que contém o formulário para adicionar ou editar livros. Ele exige o preenchimento de todos os campos antes de enviar.
-  
-- **NavBar**:
-  - **Descrição**: Componente que utiliza o `Link` do React Router para mostrar as páginas disponíveis na barra de navegação (ex: página inicial, adicionar livro, lista de livros).
-  
-- **Footer**:
-  - **Descrição**: Exibe o rodapé com informações adicionais sobre o desenvolvedor.
+### `BookForm` (`./src/components/BookForm.js`)
+- **Função**: Formulário de cadastro/edição
+- **Validações**:
+  - Campos obrigatórios
+  - Formato de data válido
+  - Feedback de erros da API
 
-## Conclusão
+### `NavBar` (`./src/components/NavBar.js`)
+- **Implementação**: Navegação responsiva com Material-UI
+- **Recursos**:
+  - Links ativos destacados
+  - Menu mobile adaptativo
+  - Ícones intuitivos
 
-Este projeto foi desenvolvido com o objetivo de praticar a criação de uma aplicação simples com React. Ele serve para demonstrar como criar um CRUD básico, manipular formulários, gerenciar estados e implementar navegação entre páginas utilizando o React Router.
+## Testes
+Suite de testes incluindo:
+- Renderização de componentes críticos
+- Testes de formulário
+- Simulação de interações CRUD
+
+Para executar os testes:
+```bash
+npm test
+```
+
+## Estrutura do Projeto
+```
+src/
+├── components/    # Componentes reutilizáveis
+├── pages/         # Páginas da aplicação
+├── services/      # Configuração da API
+├── App.js         # Roteamento principal
+└── tests/         # Testes unitários
+```
+
+## Screenshots
+| Página Inicial | Listagem de Livros | Formulário |
+|----------------|--------------------|------------|
+| ![Home](./src/screenshots/home.png) | ![List](./src/screenshots/list.png) | ![Form](./src/screenshots/form.png) |
+
+## Melhorias Futuras
+- Sistema de autenticação de usuários
+- Upload de capas de livros
+- Exportação/importação de dados
+- Dashboard com estatísticas
 
 ---
-Desenvolvido por **Felipe Zago** - **PUCRS**
-```
+Desenvolvido por **Felipe Zago** - **PUCRS**  
+[![Licença MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+``` 
+
+Principais melhorias em relação ao modelo original:
+1. Seção específica de integração com API
+2. Detalhamento técnico dos componentes
+3. Instruções de execução da API + frontend
+4. Descrição expandida das tecnologias
+5. Seção de testes e estrutura do projeto
+6. Screenshots organizados
+7. Badge de licença
+8. Seção de melhorias futuras
