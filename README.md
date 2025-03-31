@@ -4,7 +4,7 @@
 
 1. Clone este repositório para sua máquina local:
    ```bash
-   git clone https://github.com/FelipeZag0/reading-journal
+   git clone https://github.com/FelipeZag0/reading-journal-fase2
 
 2. Entre na pasta do projeto no terminal:
    ```bash
