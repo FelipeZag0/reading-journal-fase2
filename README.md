@@ -1,123 +1,75 @@
-# Nome: Felipe Zago
+# 📖 Reading Journal
 
-## Para executar este projeto:
+Aplicação CRUD de um diário de leitura, desenvolvida para a disciplina de Desenvolvimento de Sistemas Frontend (PUCRS - 5º trimestre).
 
-1. Clone este repositório para sua máquina local:
+**Desenvolvido por:** Felipe Zago
+
+## 🚀 Tecnologias
+
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![Cypress](https://img.shields.io/badge/cypress-%23E5E5E5?style=for-the-badge&logo=cypress&logoColor=058a5e)
+![Axios](https://img.shields.io/static/v1?style=for-the-badge&message=Axios&color=5A29E4&logo=Axios&logoColor=FFFFFF&label=)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)
+![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white)
+![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
+![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
+
+## 🛠️ Como rodar o projeto
+
+1. Clone este repositório:
    ```bash
-   git clone https://github.com/FelipeZag0/reading-journal-fase2
-
-2. Entre na pasta do projeto no terminal:
-   ```bash
-   cd reading-journal
+   git clone https://github.com/JoaoVitorRP/Reading-Journal.git
    ```
 
-3. Instale as dependências:
+2. Instale as dependências do frontend:
    ```bash
    npm install
    ```
 
-4. Inicie a API (em outro terminal):
+3. Clone e execute o backend:
+   - Repositório: https://github.com/adsPucrsOnline/DesenvolvimentoFrontend/
+   - Caminho: `./DesenvolvimentoFrontend/readingJournal-api/`
+   - Comandos:
+     ```bash
+     npm install
+     npm start
+     ```
+
+> A API deve rodar em `http://localhost:5000`. Se necessário, ajuste a URL no arquivo `src/services/api/api.js`.
+
+4. Inicie o frontend:
    ```bash
-   cd api && npm install && npm start
+   npm start
    ```
 
-5. Inicie o frontend:
-   ```bash
-   npm run dev
-   ```
+## 🧪 Testes
 
-## Demonstração
+Execute os testes com:
 
-Resultado esperado no navegador:  
-![Gif mostrando operações CRUD](./src/screenshots/gif-apresentacao.gif)
-
-## Sobre o Projeto
-
-Aplicação **Reading Journal** desenvolvida com React.js para gerenciamento de livros lidos, integrada com API REST. Funcionalidades principais:
-
-### Funcionalidades
-- **CRUD Completo**: Create, Read, Update e Delete de livros
-- **Validação de Formulários**: Campos obrigatórios e feedback visual
-- **Busca Inteligente**: Filtragem em tempo real na lista de livros
-- **Feedback de Ações**: Notificações visuais para sucesso/erro
-- **Responsividade**: Layout adaptável para diferentes dispositivos
-
-**Tecnologias**: React 18, React Router 6, Material-UI, Axios, Testing Library
-
-## Integração com API
-A aplicação consome os seguintes endpoints:
-- `GET /books`: Listagem de livros
-- `POST /books`: Cadastro de novo livro
-- `PUT /books/:id`: Atualização de livro existente
-- `DELETE /books/:id`: Remoção de livro
-
-## Componentes Principais
-
-### `BookList` (`./src/components/BookList.js`)
-- **Função**: Listagem interativa com Material-UI
-- **Features**:
-  - Paginação virtual
-  - Ações de edição/exclusão com ícones
-  - Exibição de data formatada
-  - Sistema de busca integrado
-
-### `BookForm` (`./src/components/BookForm.js`)
-- **Função**: Formulário de cadastro/edição
-- **Validações**:
-  - Campos obrigatórios
-  - Formato de data válido
-  - Feedback de erros da API
-
-### `NavBar` (`./src/components/NavBar.js`)
-- **Implementação**: Navegação responsiva com Material-UI
-- **Recursos**:
-  - Links ativos destacados
-  - Menu mobile adaptativo
-  - Ícones intuitivos
-
-## Testes
-Suite de testes incluindo:
-- Renderização de componentes críticos
-- Testes de formulário
-- Simulação de interações CRUD
-
-Para executar os testes:
 ```bash
 npm test
 ```
 
-## Estrutura do Projeto
-```
-src/
-├── components/    # Componentes reutilizáveis
-├── pages/         # Páginas da aplicação
-├── services/      # Configuração da API
-├── App.js         # Roteamento principal
-└── tests/         # Testes unitários
+Ou abra a interface do Cypress com:
+
+```bash
+npx cypress open
 ```
 
-## Screenshots
-| Página Inicial | Listagem de Livros | Formulário |
-|----------------|--------------------|------------|
-| ![Home](./src/screenshots/home.png) | ![List](./src/screenshots/list.png) | ![Form](./src/screenshots/form.png) |
+> Certifique-se de que o frontend e o backend estejam rodando.
 
-## Melhorias Futuras
-- Sistema de autenticação de usuários
-- Upload de capas de livros
-- Exportação/importação de dados
-- Dashboard com estatísticas
+## ✅ Funcionalidades
+
+- 📚 Cadastro, edição e exclusão de livros
+- 📅 Campo de data com validação
+- 💬 Alertas de sucesso e erro
+- 🧪 Testes automatizados com Cypress
+- 🧭 Navegação com React Router
 
 ---
-Desenvolvido por **Felipe Zago** - **PUCRS**  
-[![Licença MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-``` 
 
-Principais melhorias em relação ao modelo original:
-1. Seção específica de integração com API
-2. Detalhamento técnico dos componentes
-3. Instruções de execução da API + frontend
-4. Descrição expandida das tecnologias
-5. Seção de testes e estrutura do projeto
-6. Screenshots organizados
-7. Badge de licença
-8. Seção de melhorias futuras
+Obrigado por conferir o projeto! 😄
