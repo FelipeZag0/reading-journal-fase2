@@ -1,10 +1,11 @@
-# 📖 Reading Journal
+# Reading Journal 📚
 
-Aplicação CRUD de um diário de leitura, desenvolvida para a disciplina de Desenvolvimento de Sistemas Frontend (PUCRS - 5º trimestre).
+**Desenvolvido por:** Felipe Zago  
+Aplicação CRUD de um diário de leitura. Projeto elaborado para a disciplina de **Desenvolvimento de Sistemas Frontend**, do curso de **Análise e Desenvolvimento de Sistemas da PUCRS (5° trimestre)**.
 
-**Desenvolvido por:** Felipe Zago
+---
 
-## 🚀 Tecnologias
+## 🛠 Tecnologias Utilizadas
 
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
@@ -18,58 +19,123 @@ Aplicação CRUD de um diário de leitura, desenvolvida para a disciplina de Des
 ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
 ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
 
-## 🛠️ Como rodar o projeto
+---
 
-1. Clone este repositório:
+## ▶️ Como Executar o Projeto
+
+1. Clone este repositório ou descompacte o `.zip`:
    ```bash
-   git clone https://github.com/JoaoVitorRP/Reading-Journal.git
+   git clone https://github.com/SeuUsuario/Reading-Journal.git
    ```
 
-2. Instale as dependências do frontend:
-   ```bash
-   npm install
-   ```
-
-3. Clone e execute o backend:
+2. Clone e execute o back-end necessário:
    - Repositório: https://github.com/adsPucrsOnline/DesenvolvimentoFrontend/
-   - Caminho: `./DesenvolvimentoFrontend/readingJournal-api/`
-   - Comandos:
+   - No terminal:
      ```bash
+     cd DesenvolvimentoFrontend/readingJournal-api/
      npm install
      npm start
      ```
 
-> A API deve rodar em `http://localhost:5000`. Se necessário, ajuste a URL no arquivo `src/services/api/api.js`.
+   > **Obs:** A API deve rodar em `http://localhost:5000/`. Caso contrário, altere a URL em `src/services/api/api.js` e nos testes Cypress em `cypress/tests/e2e/*`.
 
-4. Inicie o frontend:
+3. Navegue até a pasta do frontend:
    ```bash
+   cd exemplos/context-react-project
+   npm install
    npm start
    ```
 
-## 🧪 Testes
-
-Execute os testes com:
-
-```bash
-npm test
-```
-
-Ou abra a interface do Cypress com:
-
-```bash
-npx cypress open
-```
-
-> Certifique-se de que o frontend e o backend estejam rodando.
-
-## ✅ Funcionalidades
-
-- 📚 Cadastro, edição e exclusão de livros
-- 📅 Campo de data com validação
-- 💬 Alertas de sucesso e erro
-- 🧪 Testes automatizados com Cypress
-- 🧭 Navegação com React Router
+4. Após execução, o resultado esperado é:
+   ![Resultado Esperado](./resultado.gif)
 
 ---
 
-Obrigado por conferir o projeto! 😄
+## ✅ Testes
+
+Este projeto possui testes automatizados com **Cypress**.
+
+- Rodar testes em modo headless:
+  ```bash
+  npm test
+  ```
+
+- Abrir interface gráfica do Cypress:
+  ```bash
+  npx cypress open
+  ```
+
+![Test Run Finished](./readme_assets/images/test-run-finished.png)
+
+---
+
+## 📦 Componentes
+
+### `ChildrenComponent`
+
+- **Props:** `items`, `onAdd`
+- **Função:** renderiza uma lista de dados e adiciona novos via callback.
+
+### `List`
+
+- Usa o `ChildrenComponent` com dados do contexto, disparando alterações via callback.
+
+### `Navbar`
+
+- Usa `Link` do `react-router-dom` para navegar entre páginas.
+
+### `BookForm.js`
+
+- Formulário para adicionar ou editar livros.
+- Props: `bookToEdit`, `setBookToEdit`, `setUpdateHappened`
+- Validações simples + requisições ao back-end + alertas.
+
+![BookForm](./readme_assets/images/book-form.png)
+
+### `BookList.js`
+
+- Props: `bookList`, `setUpdateHappened`
+- Mapeia lista de livros e exibe opções de editar e excluir.
+
+![BookList](./readme_assets/images/book-list.png)
+![BookList Edit](./readme_assets/images/book-list-edit.png)
+
+### `NavBar.js`
+
+- Barra de navegação fixa com estilização para itens ativos/hover.
+
+![NavBar](./readme_assets/images/navbar.png)
+
+---
+
+## 🖥️ Demonstração de Uso
+
+### Navegação
+
+![Navegação](./readme_assets/gifs/navigation.gif)
+
+### Cadastro de Livros
+
+![Cadastro](./readme_assets/gifs/save-book.gif)
+
+### Editar Livros
+
+![Edição](./readme_assets/gifs/edit-book.gif)
+
+### Excluir Livros
+
+![Exclusão](./readme_assets/gifs/delete-book.gif)
+
+---
+
+## 📌 Considerações Finais
+
+Este projeto foi desenvolvido para fins didáticos e demonstra funcionalidades como:
+
+- React Context API
+- React Router
+- Comunicação Frontend ↔ Backend
+- Testes End-to-End com Cypress
+
+Obrigado por conferir o projeto! 🚀
+```
