@@ -138,4 +138,3 @@ Este projeto foi desenvolvido para fins didáticos e demonstra funcionalidades c
 - Testes End-to-End com Cypress
 
 Obrigado por conferir o projeto! 🚀
-```
