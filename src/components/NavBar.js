@@ -17,6 +17,7 @@ export default function NavBar(props) {
                                     className={`btn-lg ${currentPath === "/" ? "btn-active" : ""}`}
                                     disabled={currentPath === "/"}
                                     data-cy="home-button"
+                                    title="Página inicial"
                                 >
                                     <i className="bi bi-house-door-fill"></i>
                                 </Button>
@@ -31,6 +32,7 @@ export default function NavBar(props) {
                                         className={`btn-lg ${currentPath === "/about" ? "btn-active" : ""}`}
                                         disabled={currentPath === "/about"}
                                         data-cy="about-button"
+                                        title="Sobre o projeto"
                                     >
                                         Sobre
                                     </Button>
@@ -40,6 +42,7 @@ export default function NavBar(props) {
                                         className={`btn-lg ${currentPath === "/register" ? "btn-active" : ""}`}
                                         disabled={currentPath === "/register"}
                                         data-cy="register-button"
+                                        title="Cadastrar novo livro"
                                     >
                                         Cadastrar Livro
                                     </Button>
@@ -49,6 +52,7 @@ export default function NavBar(props) {
                                         className={`btn-lg ${currentPath === "/booklist" ? "btn-active" : ""}`}
                                         disabled={currentPath === "/booklist"}
                                         data-cy="booklist-button"
+                                        title="Ver lista de livros"
                                     >
                                         Ver Leituras
                                     </Button>

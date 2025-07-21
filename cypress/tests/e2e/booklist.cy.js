@@ -17,7 +17,7 @@ describe("Funcionalidade de Ver e Editar a Lista de Livros:", () => {
 
             // Cria um livro para ser editado
             beforeEach(() => {
-                cy.request("POST", "http://localhost:5000/books/", {
+                cy.request("POST", `${Cypress.env('apiUrl')}/`, {
                     title,
                     author,
                     genre,
@@ -68,6 +68,20 @@ describe("Funcionalidade de Ver e Editar a Lista de Livros:", () => {
                             cy.get('button[data-cy="edit"]').click();
                         });
                 });
+
+                // *** Teste adicionado conforme solicitado ***
+                it("Deve editar um livro corretamente", () => {
+                    cy.contains('div[data-cy="booklist"]', "Teste Cypress") // Busca por título
+                      .find('button[data-cy="edit"]')
+                      .click();
+                    
+                    cy.get("input#title").clear().type("Novo Título");
+                    cy.get('button[data-cy="confirm"]').click();
+                    
+                    cy.contains("Livro atualizado!").should("be.visible");
+                    cy.contains("Novo Título").should("be.visible");
+                });
+                // *** Fim do teste adicionado ***
 
                 const editField = (field, expectedValue, valueToEdit) => {
                     cy.intercept("PUT", "**/books/").as("editBook");

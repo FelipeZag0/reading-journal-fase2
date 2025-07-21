@@ -112,3 +112,27 @@ h3 {
     width: fit-content;
     height: fit-content;
 }
+
+.book-index {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.book-card {
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .book-card {
+        width: 75%;
+    }
+}
+
+@media (min-width: 992px) {
+    .book-card {
+        width: 50%;
+    }
+}

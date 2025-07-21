@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 
+// Hook para operações assíncronas
 export default function useAsync(handler, immediate = true) {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(immediate);
@@ -10,27 +11,20 @@ export default function useAsync(handler, immediate = true) {
         setError(null);
 
         try {
-            const data = await handler(...args);
-            setData(data);
-            setLoading(false);
-            return data;
+            const result = await handler(...args);
+            setData(result);
+            return result;
         } catch (err) {
-            setError(err.response);
-            setLoading(false);
+            setError(err);
             throw err;
+        } finally {
+            setLoading(false);
         }
     };
 
     useEffect(() => {
-        if (immediate) {
-            act();
-        }
+        if (immediate) act();
     }, []);
 
-    return {
-        data,
-        loading,
-        error,
-        act,
-    };
+    return { data, loading, error, act };
 }
